@@ -1,0 +1,327 @@
+@keyframes fade {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes moveL {
+  100% {
+    transform: translateX(-150px);
+  }
+}
+@keyframes moveR {
+  100% {
+    transform: translateX(150px);
+  }
+}
+* {
+  padding: 0;
+  margin: 0;
+  text-decoration: none;
+  list-style: none;
+  box-sizing: border-box;
+  font-family: "Zen Antique Soft", serif;
+}
+
+.wrap {
+  background: linear-gradient(-45deg, #fdf250, #fffab2);
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
+
+header {
+  background-color: rgba(255, 255, 255, 0.4117647059);
+  display: flex;
+  align-items: center;
+  position: relative;
+  z-index: 5;
+}
+header .logoBox .logo {
+  background: url(../images/Starbucks_Coffee-LOGO-1.png) center center/cover;
+  width: 80px;
+  height: 80px;
+  margin: 8px;
+  margin-right: 64px;
+}
+header ul li {
+  display: inline-block;
+}
+header ul li a {
+  display: block;
+  font-size: 28px;
+  color: #646464;
+  padding: 8px 24px;
+  margin: 8px;
+}
+header ul li a:hover {
+  border-radius: 8px;
+  box-shadow: 5px 5px 8px #afafaf;
+}
+header .navBtn {
+  display: none;
+}
+
+.circleOuter {
+  display: inline-block;
+  position: absolute;
+  top: 100%;
+  left: 100%;
+  transform: translate(-50%, -50%);
+  z-index: 0;
+}
+.circleOuter .circle {
+  width: 1000px;
+  height: 1000px;
+  background-color: rgba(0, 0, 0, 0.2588235294);
+  border-radius: 50%;
+  rotate: -45deg;
+  transition: rotate 1s;
+}
+.circleOuter .circle .cup {
+  width: 700px;
+  height: 700px;
+  position: absolute;
+}
+.circleOuter .circle .cup.cup01 {
+  background: url(../images/001-Hokkaido.png) center center/cover;
+  top: 0%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.circleOuter .circle .cup.cup02 {
+  background: url(../images/003-Iwate.png) center center/cover;
+  bottom: 0%;
+  left: 50%;
+  transform: translate(-50%, 50%) rotate(180deg);
+}
+
+.introduce {
+  width: 800px;
+  padding: 64px 80px 0;
+  position: relative;
+}
+.introduce h1 {
+  font-size: 64px;
+  margin-bottom: 24px;
+}
+.introduce p {
+  font-family: "Yuji Syuku", serif;
+  font-size: 20px;
+  line-height: 48px;
+  padding: 16px;
+}
+
+.drinkList {
+  width: 750px;
+  height: 150px;
+  white-space: nowrap;
+  position: absolute;
+  left: 3%;
+  bottom: 5%;
+  overflow: hidden;
+  box-sizing: content-box;
+  padding: 0 32px;
+}
+.drinkList button {
+  z-index: 5;
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.3098039216);
+  border: none;
+  border-radius: 8px;
+  font-size: 24px;
+  padding: 24px 4px;
+  cursor: pointer;
+  box-shadow: 3px 3px 3px #000;
+}
+.drinkList #prev {
+  top: 50%;
+  transform: translateY(-50%);
+}
+.drinkList #next {
+  top: 50%;
+  right: 5px;
+  transform: translateY(-50%);
+}
+.drinkList .drink {
+  display: inline-block;
+  width: 150px;
+  height: 150px;
+  cursor: pointer;
+  background-position: center center;
+  background-size: cover;
+}
+
+.visiable {
+  display: block;
+}
+
+@media screen and (min-width: 769px) and (max-width: 1400px) {
+  header {
+    position: relative;
+    display: block;
+  }
+  header .logoBox .logo {
+    width: 97.5px;
+    height: 97.5px;
+    margin: 6.5px;
+    margin-right: 52px;
+  }
+  header ul {
+    display: none;
+    flex-grow: 1;
+    animation: fade 0.8s ease forwards;
+  }
+  header ul li {
+    display: block;
+  }
+  header ul li a {
+    font-size: 22.75px;
+    padding: 6.5px 19.5px;
+  }
+  header .navBtn {
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: inline-block;
+    font-size: 45.5px;
+    padding: 13px 19.5px;
+  }
+  header .navBtn i {
+    pointer-events: none;
+  }
+  .circleOuter .circle {
+    width: 800px;
+    height: 800px;
+  }
+  .circleOuter .circle .cup {
+    width: 560px;
+    height: 560px;
+  }
+  .introduce {
+    width: 90%;
+    margin: 0 auto;
+    padding: 32.5px 13px;
+    position: relative;
+  }
+  .introduce h1 {
+    font-size: 78px;
+    margin-bottom: 19.5px;
+  }
+  .introduce h2 {
+    font-size: 29.25px;
+  }
+  .introduce p {
+    background-color: rgba(255, 255, 255, 0.368627451);
+    font-size: 26px;
+    line-height: 39px;
+    padding: 32.5px 65px;
+    margin-top: 32.5px;
+    border-radius: 2rem;
+  }
+  .drinkList {
+    width: 750px;
+    white-space: nowrap;
+    position: absolute;
+    left: 3%;
+    bottom: 0%;
+    padding: 0 26px;
+  }
+  .drinkList button {
+    z-index: 5;
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.3098039216);
+    border-radius: 6.5px;
+    font-size: 19.5px;
+    padding: 19.5px 3.25px;
+  }
+  .drinkList .drink {
+    width: 150px;
+    height: 150px;
+  }
+}
+@media screen and (max-width: 768px) {
+  header {
+    position: relative;
+    display: block;
+  }
+  header .logoBox .logo {
+    width: 60px;
+    height: 60px;
+    margin: 4px;
+    margin-right: 32px;
+  }
+  header ul {
+    display: none;
+    flex-grow: 1;
+    animation: fade 0.8s ease forwards;
+  }
+  header ul li {
+    display: block;
+  }
+  header ul li a {
+    font-size: 14px;
+    padding: 4px 12px;
+  }
+  header .navBtn {
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: inline-block;
+    font-size: 28px;
+    padding: 8px 12px;
+  }
+  header .navBtn i {
+    pointer-events: none;
+  }
+  .circleOuter .circle {
+    width: 500px;
+    height: 500px;
+  }
+  .circleOuter .circle .cup {
+    width: 350px;
+    height: 350px;
+  }
+  .introduce {
+    width: 100%;
+    padding: 20px 8px;
+    position: relative;
+  }
+  .introduce h1 {
+    font-size: 48px;
+    margin-bottom: 12px;
+  }
+  .introduce h2 {
+    font-size: 18px;
+  }
+  .introduce p {
+    background-color: rgba(255, 255, 255, 0.368627451);
+    font-size: 16px;
+    line-height: 24px;
+    padding: 8px 20px;
+    border-radius: 2rem;
+  }
+  .drinkList {
+    width: 300px;
+    white-space: nowrap;
+    position: absolute;
+    left: 3%;
+    bottom: 0%;
+    padding: 0 16px;
+  }
+  .drinkList button {
+    z-index: 5;
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.3098039216);
+    border-radius: 4px;
+    font-size: 12px;
+    padding: 12px 2px;
+  }
+  .drinkList .drink {
+    width: 100px;
+    height: 100px;
+  }
+}/*# sourceMappingURL=style.css.map */

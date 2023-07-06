@@ -1,0 +1,425 @@
+@import "./animation";
+
+$cupCircle-w : 1000px;
+$intro-w: 800px;
+$drink-w: 150px;
+
+* {
+  padding: 0;
+  margin: 0;
+  text-decoration: none;
+  list-style: none;
+  box-sizing: border-box;
+  font-family: 'Zen Antique Soft', serif;
+}
+
+.wrap {
+  background: linear-gradient(-45deg, #fdf250, #fffab2);
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
+
+header {
+  background-color: #ffffff69;
+  display: flex;
+  align-items: center;
+  position: relative;
+  z-index: 5;
+
+  .logoBox {
+    .logo {
+      background: url(../images/Starbucks_Coffee-LOGO-1.png) center center / cover;
+      width: $intro-w * 0.1;
+      height: $intro-w * 0.1;
+      margin: $intro-w * 0.01;
+      margin-right: $intro-w * 0.08;
+
+    }
+  }
+
+  ul {
+    li {
+      display: inline-block;
+
+      a {
+        display: block;
+        font-size: $intro-w * 0.035;
+        color: #646464;
+        padding: $intro-w * 0.01 $intro-w * 0.03;
+        margin: $intro-w * 0.01;
+
+        &:hover {
+          border-radius: $intro-w * 0.01;
+          box-shadow: 5px 5px 8px #afafaf;
+        }
+      }
+    }
+
+  }
+
+  .navBtn {
+    display: none;
+  }
+}
+
+.circleOuter {
+  // background-color: aqua;
+  display: inline-block;
+  position: absolute;
+  top: 100%;
+  left: 100%;
+  transform: translate(-50%, -50%);
+  z-index: 0;
+
+  .circle {
+    width: $cupCircle-w * 1;
+    height: $cupCircle-w * 1;
+    background-color: #00000042;
+    border-radius: 50%;
+    rotate: -45deg;
+    transition: rotate 1s;
+
+    .cup {
+      width: $cupCircle-w * .7;
+      height: $cupCircle-w * .7;
+      position: absolute;
+
+      &.cup01 {
+        background: url(../images/001-Hokkaido.png) center center / cover;
+        top: 0%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+
+      &.cup02 {
+        background: url(../images/003-Iwate.png) center center / cover;
+        bottom: 0%;
+        left: 50%;
+        transform: translate(-50%, 50%) rotate(180deg);
+      }
+
+    }
+  }
+}
+
+.introduce {
+  // background-color: aquamarine;
+  width: $intro-w;
+  padding: $intro-w * 0.08 $intro-w * 0.1 0;
+  position: relative;
+
+  h1 {
+    font-size: $intro-w * 0.08;
+    margin-bottom: $intro-w * 0.03;
+  }
+
+  p {
+    font-family: 'Yuji Syuku', serif;
+    font-size: $intro-w * 0.025;
+    line-height: $intro-w * 0.06;
+    padding: $intro-w * 0.02;
+  }
+}
+
+.drinkList {
+  width: $drink-w * 5;
+  height: $drink-w;
+  white-space: nowrap;
+  position: absolute;
+  left: 3%;
+  bottom: 5%;
+  overflow: hidden;
+  box-sizing: content-box;
+  padding: 0 $intro-w * 0.04;
+
+  button {
+    z-index: 5;
+    position: absolute;
+    background-color: #0000004f;
+    border: none;
+    border-radius: $intro-w * 0.01;
+    font-size: $intro-w * 0.03;
+    padding: $intro-w * 0.03 $intro-w * 0.005;
+    cursor: pointer;
+    box-shadow: 3px 3px 3px #000;
+  }
+
+  #prev {
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  #next {
+    top: 50%;
+    right: 5px;
+    transform: translateY(-50%);
+  }
+
+  .drink {
+    // background-color: blueviolet;
+    display: inline-block;
+    width: $drink-w;
+    height: $drink-w;
+    cursor: pointer;
+    background-position: center center;
+    background-size: cover;
+
+    // &.drink01 {
+    //   background-image: url(../images/001-Hokkaido.png);
+    // }
+
+    // &.drink02 {
+    //   background-image: url(../images/003-Iwate.png);
+    // }
+
+    // &.drink03 {
+    //   background-image: url(../images/008-Ibaraki.png);
+    // }
+
+    // &.drink04 {
+    //   background-image: url(../images/009-Tochigi.png);
+    // }
+  }
+}
+
+//-------功能性 class --------
+.visiable {
+  display: block;
+}
+
+// -----------------
+
+@media screen and (min-width: 769px) and (max-width: 1400px) {
+  $cupCircle-w : 800px;
+  $intro-w: 650px;
+  $drink-w: 150px;
+
+  header {
+    position: relative;
+    display: block;
+
+    .logoBox {
+      .logo {
+        width: $intro-w * 0.15;
+        height: $intro-w * 0.15;
+        margin: $intro-w * 0.01;
+        margin-right: $intro-w * 0.08;
+      }
+    }
+
+    ul {
+      display: none;
+      flex-grow: 1;
+      animation: fade .8s ease forwards;
+
+      li {
+        display: block;
+
+        a {
+          font-size: $intro-w * 0.035;
+          padding: $intro-w * 0.01 $intro-w * 0.03;
+        }
+      }
+    }
+
+    .navBtn {
+      // background-color: blueviolet;
+      position: absolute;
+      top: 0;
+      right: 0;
+      display: inline-block;
+      font-size: $intro-w * 0.07;
+      padding: $intro-w * 0.02 $intro-w * 0.03;
+
+      i {
+        pointer-events: none;
+      }
+
+    }
+
+  }
+
+  .circleOuter {
+
+    .circle {
+      width: $cupCircle-w * 1;
+      height: $cupCircle-w * 1;
+
+      .cup {
+        width: $cupCircle-w * .7;
+        height: $cupCircle-w * .7;
+      }
+    }
+  }
+
+
+
+  .introduce {
+    // background-color: #ffffff5e;
+    width: 90%;
+    margin: 0 auto;
+    padding: $intro-w * 0.05 $intro-w * 0.02;
+    position: relative;
+
+    h1 {
+      font-size: $intro-w * 0.12;
+      margin-bottom: $intro-w * 0.03;
+    }
+
+    h2 {
+      font-size: $intro-w * 0.045;
+    }
+
+    p {
+      background-color: #ffffff5e;
+      font-size: $intro-w * 0.04;
+      line-height: $intro-w * 0.06;
+      padding: $intro-w * 0.05 $intro-w * 0.1;
+      margin-top: $intro-w * 0.05;
+      border-radius: 2rem;
+    }
+  }
+
+  .drinkList {
+    width: $drink-w * 5;
+    white-space: nowrap;
+    position: absolute;
+    left: 3%;
+    bottom: 0%;
+    padding: 0 $intro-w * 0.04;
+
+
+    button {
+      z-index: 5;
+      position: absolute;
+      background-color: #0000004f;
+      border-radius: $intro-w * 0.01;
+      font-size: $intro-w * 0.03;
+      padding: $intro-w * 0.03 $intro-w * 0.005;
+    }
+
+    .drink {
+      width: $drink-w;
+      height: $drink-w;
+    }
+  }
+
+}
+
+
+@media screen and (max-width:768px) {
+  $intro-w: 400px;
+  $cupCircle-w : 500px;
+  $drink-w: 100px;
+
+  header {
+    position: relative;
+    display: block;
+
+    .logoBox {
+      .logo {
+        width: $intro-w * 0.15;
+        height: $intro-w * 0.15;
+        margin: $intro-w * 0.01;
+        margin-right: $intro-w * 0.08;
+      }
+    }
+
+    ul {
+      display: none;
+      flex-grow: 1;
+      animation: fade .8s ease forwards;
+
+      li {
+        display: block;
+
+        a {
+          font-size: $intro-w * 0.035;
+          padding: $intro-w * 0.01 $intro-w * 0.03;
+        }
+      }
+    }
+
+    .navBtn {
+      // background-color: blueviolet;
+      position: absolute;
+      top: 0;
+      right: 0;
+      display: inline-block;
+      font-size: $intro-w * 0.07;
+      padding: $intro-w * 0.02 $intro-w * 0.03;
+
+      i {
+        pointer-events: none;
+      }
+
+    }
+
+  }
+
+  .circleOuter {
+
+    .circle {
+      width: $cupCircle-w * 1;
+      height: $cupCircle-w * 1;
+
+      .cup {
+        width: $cupCircle-w * .7;
+        height: $cupCircle-w * .7;
+      }
+    }
+  }
+
+
+
+  .introduce {
+    // background-color: #ffffff5e;
+    width: 100%;
+    padding: $intro-w * 0.05 $intro-w * 0.02;
+    position: relative;
+
+    h1 {
+      font-size: $intro-w * 0.12;
+      margin-bottom: $intro-w * 0.03;
+    }
+
+    h2 {
+      font-size: $intro-w * 0.045;
+    }
+
+    p {
+      background-color: #ffffff5e;
+      font-size: $intro-w * 0.04;
+      line-height: $intro-w * 0.06;
+      padding: $intro-w * 0.02 $intro-w * 0.05;
+      border-radius: 2rem;
+    }
+  }
+
+  .drinkList {
+    width: $drink-w * 3;
+    white-space: nowrap;
+    position: absolute;
+    left: 3%;
+    bottom: 0%;
+    padding: 0 $intro-w * 0.04;
+
+
+    button {
+      z-index: 5;
+      position: absolute;
+      background-color: #0000004f;
+      border-radius: $intro-w * 0.01;
+      font-size: $intro-w * 0.03;
+      padding: $intro-w * 0.03 $intro-w * 0.005;
+    }
+
+    .drink {
+      width: $drink-w;
+      height: $drink-w;
+    }
+  }
+
+}
